@@ -1,6 +1,13 @@
-# kue-job-cleaner
+# kue-sweeper
+a simple nodejs service to avoid memory leaking when use kue to process millions of jobs by removing kue job immediately upon its completion
 
-a simple nodejs service to remove kue job upon its completion
+## Why need this module:
+[kue](https://npmjs.org/package/kue) is a handy redis-backed job processing module. But when using kue for processing millions of jobs, we have met following circumstances incuring memory leaking.
+
+ * [job related search sets remain in redis after job got removed](https://github.com/learnboost/kue/issues/94)
+ * Job handling service crash causes job pilling in redis
+
+So I wrote this little tool to run as a standalone service which will keep watching kue and remove kue job immediately upon its completion
 
 ## Install
 Install the module with:
@@ -15,12 +22,6 @@ var kue_job_cleaner = require('kue-job-cleaner');
 kue_job_cleaner.awesome(); // "awesome"
 ```
 _(Coming soon)_
-
-## Examples
-_(Coming soon)_
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## License
 Copyright (c) 2013 yi
