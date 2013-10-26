@@ -1,6 +1,6 @@
 {
   "name": "kue-sweeper",
-  "description": "a simple nodejs service to avoid memory leaking when use kue to process millions of jobs by removing kue job immediately upon its completion"
+  "description": "a simple nodejs service to avoid memory leaking when use kue to process millions of jobs by removing kue job immediately upon its completion",
   "version": "0.1.0",
   "homepage": "https://github.com/yi/kue-sweeper",
   "author": {
