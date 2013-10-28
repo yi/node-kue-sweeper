@@ -18,9 +18,13 @@ p.version('0.0.1')
   .option('-h, --host [VALUE]', 'redis service host')
   .parse(process.argv)
 
+p.port = p.port || 6379
+
+p.host = p.host || "localhost"
+
 kue.redis.createClient = ->
 
-  client = redis.createClient(KUE_PORT, KUE_HOST)
+  client = redis.createClient(p.port, p.host)
 
   client.on "error",  (error) ->
     console.error "[kue-sweeper::redis::on error] #{error}"
@@ -43,11 +47,11 @@ kue.redis.createClient = ->
 # clear job once it completed
 kue.createQueue().on 'job complete', (id) ->
   Job.get id, (err, job)->
-    if err?
+    if err? or not job?
       console.warn "[kue-sweeper::on job completed] fail to get job: #{id}. error:#{err}"
       return
 
-    console.log "[kue-sweeper::removeKueJob] job:#{job}"
+    console.log "[kue-sweeper::removeKueJob] job:#{job.id}"
 
     unless job? and _.isFunction(job.remove)
       console.error "[kue-sweeper::removeKueJob] bad argument, #{job}"
