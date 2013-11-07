@@ -17,11 +17,15 @@ npm install kue-job-cleaner
 ```
 
 ## Usage
-```javascript
-var kue_job_cleaner = require('kue-job-cleaner');
-kue_job_cleaner.awesome(); // "awesome"
+```bash
+# start kue-sweeper with forever
+forever-start-kue-sweep.sh
 ```
-_(Coming soon)_
+
+## Configure
+
+ * -p --port <n>, redis service port
+ * -h, --host [VALUE], redis service host
 
 ## License
 Copyright (c) 2013 yi
