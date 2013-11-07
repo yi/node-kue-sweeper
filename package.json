@@ -29,7 +29,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-   , "watch" : "coffee -o ./lib/ -cw ./src/"
+    "watch" : "coffee -o ./lib/ -cw ./src/"
   },
   "dependencies" : {
     "commander": ">=1.0.1",
