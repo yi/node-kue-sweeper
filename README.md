@@ -13,7 +13,7 @@ So I wrote this little tool to run as a standalone service which will keep watch
 Install the module with:
 
 ```bash
-npm install kue-job-cleaner
+npm install kue-sweeper
 ```
 
 ## Usage
