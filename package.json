@@ -1,7 +1,7 @@
 {
   "name": "kue-sweeper",
   "description": "a simple nodejs service to avoid memory leaking when use kue to process millions of jobs by removing kue job immediately upon its completion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/yi/kue-sweeper",
   "author": {
     "name": "yi",
@@ -23,7 +23,7 @@
   ],
   "main": "lib/kue-sweeper",
   "bin": {
-    "kue-sweeper": "./bin/kue-sweeper.js"
+    "kue-sweeper": "./lib/kue-sweeper.js"
   },
   "engines": {
     "node": ">= 0.8.0"
